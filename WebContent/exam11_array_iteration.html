@@ -12,7 +12,7 @@
 			
 			//forEach 반복 처리
 			fruits.forEach(function(item, index) {
-				console.log(index , ":", item);
+				console.log(index + ":" + item);
 			});
 			
 			fruits.forEach((item, index) => {
@@ -25,7 +25,7 @@
 			var arr1 = fruits.map((item) => item.length);
 			console.log(arr1);
 			
-			//filter 반복 처리를 해서 필요없는 아이템을 제거
+			//filter 반복 처리를 해서 필요없는 아이템을 제거 false 삭제
 			var arr2 = fruits.filter(item => {
 				if(item.startsWith("o")) {
 					return false;
