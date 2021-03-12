@@ -33,9 +33,20 @@
 					console.log($(this).val());		//$(...)는 jquery객체이기 때문에 jquery 메소드 사용 가능
 				});
 				
+				//radio 얻기
 				var checkedJob = $("[name=ujob]:checked");
 				console.log(checkedJob.val());
+				
+				//date 얻기
+				var selectedDate = $("#birth");		//jquery 객체
+				console.log(selectedDate.val());
+				
+				//서버로 데이터를 전송
+				var joinForm = document.querySelector("#joinForm");
+				joinForm.submit();	//element객체
 			}
+			
+			
 		</script>
 		
 	</head>
@@ -45,28 +56,28 @@
       	form 태그와 유효성 검사
       </div>
       	<div class="card-body">
-      		<form onsubmit="checkData()">
+      		<form id="joinForm" onsubmit="checkData()" novalidate method="post">
       			<div class="form-group">
 				    <label for="uid">User ID</label>
-				    <input type="text" class="form-control" id="uid" 
+				    <input type="text" class="form-control" id="uid" name="uid"
 				    	minlength="3" maxlength="8"
 				    	required
 				    	>
 				  </div>
 					<div class="form-group">
 		                <label for="utel">전화번호</label>
-		                <input type="text" class="form-control" id="utel" 
+		                <input type="text" class="form-control" id="utel" name="utel"
 		                required pattern="010-\d{3,4}-\d{4}"> 
 		            </div>
 
 				  <div class="form-group">
 				    <label for="uemail">Email address</label>
-				    <input type="email" class="form-control" id="uemail" aria-describedby="emailHelp">
+				    <input type="email" class="form-control" id="uemail" name="uemail">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="upassword">Password</label>
-				    <input type="password" class="form-control" id="upassword">
+				    <input type="password" class="form-control" id="upassword" name="upassword">
 				  </div>
 				  <div>
 				    <input type="checkbox" name="skill" value="java">java
@@ -79,11 +90,11 @@
 				    <input type="radio" name="ujob" value="pm">프로젝트관리자
 				  </div>
 				  <div>
-				  	생년월일 : <input type="date"/>
+				  	생년월일 : <input id="birth" name="birth" type="date" value="2040-03-12"/>
 				  </div>
 				  <div class="form-group form-check">
-				    <input type="checkbox" class="form-check-input" id="upublic">
-				    <label class="form-check-label" for="upublic">Check me out</label>
+				    <input type="checkbox" id="upublic" name="upublic" value="true">
+				    <label for="upublic">Check me out</label>
 				  </div>
 				  <!-- <div style="display:flex; align-items: center;"> -->
 				  <div class="d-flex align-items-center">
